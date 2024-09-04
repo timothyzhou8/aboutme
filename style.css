@@ -1,0 +1,307 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: #0c192c;
+}
+
+.bg {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.bubbles {
+    position: relative;
+    display: flex;
+}
+
+.bubbles span {
+    position: relative;
+    min-width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin: 0 4px;
+}
+
+.bubbles span.red {
+    background: #ff2d2d;
+    box-shadow: 0 0 10px #ff2d2d44,
+    0 0 50px #ff2d2d,
+    0 0 100px #ff2d2d;
+}
+
+.bubbles span.orange {
+    background: #ffa500;
+    box-shadow: 0 0 10px #ffa50044,
+    0 0 50px #ffa500,
+    0 0 100px #ffa500;
+}
+
+.bubbles span.yellow {
+    background: #ffd700;
+    box-shadow: 0 0 10px #ffd70044,
+    0 0 50px #ffd700,
+    0 0 100px #ffd700;
+}
+
+.bubbles span.green {
+    background: #32cd32;
+    box-shadow: 0 0 10px #32cd3244,
+    0 0 50px #32cd32,
+    0 0 100px #32cd32;
+}
+
+.bubbles span.blue {
+    background: #4fc3dc;
+    box-shadow: 0 0 10px #4fc3dc44,
+    0 0 50px #4fc3dc,
+    0 0 100px #4fc3dc;
+}
+
+.bubbles span.violet {
+    background: #9400d3;
+    box-shadow: 0 0 10px #4b008244,
+    0 0 50px #9400d3,
+    0 0 100px #9400d3;
+}
+
+@keyframes animate-up {
+    0%   {transform: translateY(100vh) scale(0);}
+    100% {transform: translateY(-10vh) scale(1);}
+}
+
+.bubbles span.move-up {
+    animation: animate-up 20s linear infinite;
+    animation-duration: calc(200s / var(--i));
+}
+
+/* Code snippet modified from: 
+ * https://stackoverflow.com/questions/73346380/making-a-div-move-randomly-around-using-css
+ */
+.bubbles span.move-rand {
+    position: absolute;
+    animation-name: animate-rand;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes animate-rand {
+    0%   {left: var(--randx0); top: var(--randy0);}
+    20%  {left: var(--randx1); top: var(--randy1);}
+    40%  {left: var(--randx2); top: var(--randy2);}
+    60%  {left: var(--randx3); top: var(--randy3);}
+    80%  {left: var(--randx4); top: var(--randy4);}
+    100% {left: var(--randx0); top: var(--randy0);}
+}
+
+.harmonize {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+button#harmonize {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%; 
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+    padding: 11px 30px;
+    background: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 500;
+    border-radius: 6px; 
+    transition-duration: 0.3s;
+}
+
+button#harmonize:hover {
+    background: #4fc3dc;
+    color: #0c192c;
+}
+
+section {
+    position: absolute; 
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    pointer-events: none;
+}
+
+section .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: max-content; 
+    background-color: rgba(0,0,0,0.9);
+    padding: 40px;
+    border-radius: 20px;
+    visibility: hidden;
+}
+
+section img#profile-img {
+    height: 10vh;
+    border: 3px solid #ffa500;
+    border-radius: 2px;
+}
+
+section .content h2 {
+    font-size: 3.5em;
+    color: #fff;
+}
+
+section .content h2 span {
+    color: #4fc3dc;
+}
+
+section .content .about {
+    justify-content: left;
+    align-items: left;
+    text-align: left;
+    width: 40vw;
+}
+
+section .content strong {
+    color: #4fc3dc;
+}
+
+section .content p {
+    color: #fff;
+    font-size: 1.4em;
+    padding-bottom: 0.1em;
+}
+
+section .content p span {
+    font-size: 0.95em;
+}
+
+section .content ul {
+    padding-left: 1.5em;
+}
+
+section .content li {
+    color: #fff;
+    font-size: 1.3em;
+}
+
+section .content .buttons {
+    position: relative;
+    top: 10px;
+    display: flex;
+    gap: 15px;
+}
+
+section .content .buttons a {
+    display: inline-block;
+    padding: 0.5em 1em;
+    background: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 500;
+    border-radius: 6px;
+    transition-duration: 0.3s;
+}
+
+section .content .buttons a:hover {
+    background: #4fc3dc;
+    color: #0c192c;
+}
+
+.fade-in {
+    animation: animate-fade-in ease 1.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.fade-in-zoom {
+    animation: animate-zoom-in ease 1.5s, animate-fade-in ease 1.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes animate-fade-in {
+    0%   {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@keyframes animate-zoom-in {
+    0%   {transform: scale(0.5, 0.5);}
+    100% {transform: scale(1, 1);}
+}
+
+.fade-out {
+    animation: animate-fade-out ease 1.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes animate-fade-out {
+    0%   {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+/* 
+ * Code snipped modified from:
+ * https://codepen.io/artboardartisan/pen/VLzKVN
+ */
+.progress-bar {
+	border-radius: 20px;
+	overflow: hidden;
+    width: 100%;
+    visibility: hidden;
+}
+
+.progress-bar span {
+    display: block;
+}
+
+.bar {
+    background: rgba(0,0,0,0.075);
+}
+
+.progress {
+    background: #4fc3dc;
+    color: #fff;
+    padding: 10px;
+    width: 0;
+}
+
+.progress.progress-animate {
+    animation: animate-fade-in 2s ease, animate-loader 6s ease;
+    animation-fill-mode: forwards;
+}
+
+@keyframes animate-loader {
+    0%   {width: 0%;}
+    100% {width: 100%;}
+}
+
+.progress-bar {
+    left: 50%;
+    max-width: 30%;
+    position: absolute;
+    top: 50%;
+    transform: translate3d(-50%,-50%,0);
+}
+
